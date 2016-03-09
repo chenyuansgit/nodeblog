@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NodeBlog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <ul>
+    	<li><a href='#'>NodeBlog</a></li>
+    	<li><a href='#'>首页</a></li>
+      <% if( locals.username ) { %>
+          <li><a href='#'><%= locals.username %></a></li>
+          <li><a href='/logout'>退出</a></li>
+      <% } else { %>
+          <li><a href='/login'>登录</a></li>
+          <li><a href='/reg'>注册</a></li>
+      <% } %>
+    </ul>
+
+   <% if(locals.success){ %>
+      <div>
+        <%= locals.success%>
+      </div>
+    <% } %>
+
+    <% if(locals.error){ %>
+       <div>
+        <%= locals.error%>
+      </div>
+    <% } %>
+
+
+    <%- body%>
+    
+    <footer>个人博客项目 By chenyuan 2016</footer>
+  </body>
+</html>
